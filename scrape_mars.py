@@ -32,8 +32,8 @@ def scrape():
     url = 'https://galaxyfacts-mars.com/'
 
     table = pd.read_html(url)
-    table = pd.DataFrame(table)
-    html_table = table.to_html()
+    table = pd.DataFrame(table[0])
+    html_table = table.to_html(classes=["table", "table-dark", "table-responsive"])
 
 
     url = 'https://marshemispheres.com/'

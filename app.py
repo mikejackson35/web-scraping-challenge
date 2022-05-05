@@ -16,8 +16,7 @@ def index():
 @app.route("/scrape")
 def scrape():
     scraped_data = scrape_mars.scrape()
-    mongo.db.mars.update({}, {"$set": scraped_data}, upsert=True)
-    mongo.db.update_one({}, {"$set": scraped_data}, upsert=True)
+    mongo.db.mars.update_one({}, {"$set": scraped_data}, upsert=True)
     return redirect('/')
 
 if __name__ == "__main__":
